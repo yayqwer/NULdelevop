@@ -1,0 +1,55 @@
+[{
+		"id": "playBySinger",
+		"word": "按歌手分类",
+		"mainCase": [
+		             "播放[singer]的歌曲",
+		             "播放[singer]的歌",
+					 "放首[singer]的歌"
+					 ]
+		
+	}, {
+		"id": "playBySong",
+		"word": "按歌曲分类",
+		"mainCase": [
+		             "播放[song]",
+		             "来首[song]",
+					 "放首[song]"
+					 ]		
+	}, {
+		"id": "playByNoParameter",
+		"word": "无参数分类",
+		"mainCase": [
+		             "放首歌"
+					 ]		
+	}, {
+		"id": "playByYears",
+		"word": "按年代分类",
+		"mainCase": [
+		             "播放[year]的歌"
+					 ]		
+	}, {
+		"id": "playByLanguage",
+		"word": "按语言分类",
+		"mainCase": [
+		             "播放[language]歌曲"
+					 ]		
+	}, {
+		"id": "playByAlbum",
+		"word": "按专辑分类",
+		"mainCase": [
+		             "播放专辑[album]"
+					 ]		
+	}, {
+		"id": "playTopList",
+		"word": "按榜单分类",
+		"mainCase": [
+		             "播放[toplist]"
+					 ]		
+	}, {
+		"id": "playBySchool",
+		"word": "按流派分类",
+		"mainCase": [
+		             "播放[school]歌曲"
+					 ]		
+	}
+]

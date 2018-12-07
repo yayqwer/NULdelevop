@@ -1,0 +1,17 @@
+[DEFAULT]
+show_num = [100,150,200,500]
+
+[zch_test]
+utt_n = 3
+col = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+titles = {'goal': 'Goal ID', 'type': 'Goal : Main sentences', 'number': 'No.', 'represent': 'Utterance'}
+result_xlsx = variation_music.xlsx
+result_file_name = variation_music_tmp.xlsx
+
+[xlsx_info]
+titles = {'goal': 'Goal ID', 'type': 'Goal : Main sentences', 'number': 'No.', 'represent': 'Utterance'}
+
+[Page_Selected_Info]
+page2_selected = ["playByAlbum"]
+page1_selected = ['music']
+
