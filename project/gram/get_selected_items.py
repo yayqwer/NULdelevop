@@ -25,7 +25,7 @@ page2_selected = eval(config.get('Page_Selected_Info', 'page2_selected'))
 
 #creat read json function
 def readjson(path):
-    file = open(path, "r",encoding='utf-8')
+    file = open(path, "r")
     filejson = json.load(file)
     file.close()
     return (filejson)
@@ -43,5 +43,4 @@ for i in page1_selected:
 #save selected_items as selected_items.json file
 with open('tmp_files/selected_items.json','w') as fw:
    json.dump(selected_item,fw,ensure_ascii=False)
-   print('done!')
-    
+   print('get_selected_items.py excution is completed!')

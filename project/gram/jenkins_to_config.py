@@ -12,12 +12,13 @@ config.read(config_path_name, encoding='utf8')
 
 def _into_config():
     jenkins_text = r'' + tmp_path + '/parameter.txt'
-    #jenkins_text = r'' + tmp_path + '/zch.txt'
     with open(jenkins_text, 'r', encoding='utf8') as fr:
         result = fr.readlines()
         config['Page_Selected_Info'] = {
             'page1_selected': result[0].strip(),
-            'page2_selected': result[1].strip()
+            'page2_selected': result[1].strip(),
+            'page3_selected': result[2].strip(),
+            'generate_tc_file':result[3].strip()
         }
 
     with open(config_path_name, 'w', encoding='utf-8') as config_file:
@@ -26,3 +27,4 @@ def _into_config():
 
 if __name__ == '__main__':
     _into_config()
+    print('jenkins_to_cofig.py excution is completed!')

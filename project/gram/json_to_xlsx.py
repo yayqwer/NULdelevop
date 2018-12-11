@@ -22,7 +22,7 @@ config_path_name = root_path + '/config_test.ini'
 config.read(config_path_name, encoding='utf-8')
 
 # Number of single extended statements
-n = int(config.get('zch_test', 'UTT_N'))
+n = int(eval(config.get('Page_Selected_Info', 'page3_selected'))[0])
 
 
 def root_type_list():
@@ -35,8 +35,8 @@ def root_type_list():
     files = eval(config.get('Page_Selected_Info','page1_selected'))
     for item in files:
         e_01 = item
-        json_file_name = 'model_output_'+item+'.json' 
-        xls_file_name = 'variation_' + e_01 + '_test.xlsx'
+        json_file_name = 'variation_'+item+'.json' 
+        xls_file_name = 'variation_' + e_01 + '.xlsx'
         all_file_types.append([e_01, json_file_name, xls_file_name])
     return all_file_types
 
@@ -111,7 +111,10 @@ def write_xls(file_info):
 
        # _one = list(domain.keys())
         _d_level = list(domain.values())
-        d_name = domain.get('playByCategory')  
+        domain_keys = list(domain.keys())
+        if 'mianCase' in domain_keys:
+            domain_keys.remove('mainCase')
+        d_name = domain.get(domain_keys[0])
         types = domain.get('mainCase')  
         d_name_list.append(d_name)
 
@@ -199,6 +202,7 @@ if __name__ == '__main__':
     files_types = root_type_list()
     for item in files_types:
         write_xls(item)
+    print('json_to_xlsx.py excution is completed!')
     #tmp_item = ['music','variation_music.json','variation_music_tmp_zch.xlsx']
     #write_xls(tmp_item)
 

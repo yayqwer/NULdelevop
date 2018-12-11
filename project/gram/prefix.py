@@ -1,10 +1,17 @@
 import random as Rd
 import json
+import configparser
+
+
+config = configparser.ConfigParser()
+config.read('../config_test.ini')
+page1_selected = eval(config.get('Page_Selected_Info', 'page1_selected'))
+page3_selected = eval(config.get('Page_Selected_Info', 'page3_selected'))
 
 #文件路径
-appendix = r"../vocab/music/appendix.json"
-core = r"../vocab/music/core.json"
-outpt = r"../out/prefixOutput.json"
+appendix = r"../vocab/"+page1_selected[0]+"/appendix.json"
+core = r"../tmp_files/selected_items.json"
+outpt = r"../tmp_files/prefixOutput.json"
 
 #设置随机函数 输入n随机返回一个0-n的整数
 def rando(n):
@@ -15,7 +22,7 @@ def rando(n):
 #获取前后缀文件函数
 def appendixJson(path):
     appendixLiet = {}
-    with open(path,"rb") as file:
+    with open(path,"r") as file:
         fileJson = json.load(file)
         length =  len(fileJson)
         for i in range(length):
@@ -105,9 +112,9 @@ def integration(StatisticalPrefix,resolveJson):
             newList.append(tag)
     return newList   #返回匹配好前后缀的列表
 
-StatisticalPrefix = StatisticalPrefix(20)
-resolveJson = resolveJson(core)
-listAll = integration(StatisticalPrefix,resolveJson)
+#StatisticalPrefix = StatisticalPrefix(20)
+#resolveJson = resolveJson(core)
+#listAll = integration(StatisticalPrefix,resolveJson)
 # print (resolveJson[0])
 # print (resolveJson[1])
 # print (resolveJson[2])
@@ -115,7 +122,7 @@ listAll = integration(StatisticalPrefix,resolveJson)
 # print (listAll)
 
 # 生成json文件  jsonStr = json.dumps(data)
-def outputJson(name,main,fenlei,num,extend,n):
+def outputJson(name,main,fenlei,num,extend,n,path):
     #参数说明
     #name--->领域名称
     #main--->主句
@@ -130,7 +137,9 @@ def outputJson(name,main,fenlei,num,extend,n):
     test = []
     for i in range(langth):
         training = {}
-        training[name[i]] = fenlei[i]
+        #training[name[i]] = fenlei[i]
+        training["GoalID"] = name[i]
+        training["playByCategory"] = fenlei[i]
         training["mainCase"] = []
         langtha = num[i]
         for j in range(langtha):
@@ -143,11 +152,21 @@ def outputJson(name,main,fenlei,num,extend,n):
             training["mainCase"].append(voc)
         test.append(training)
     jsonStr = json.dumps(test,ensure_ascii=False)
-    print(jsonStr)
-outputJson(resolveJson[0],resolveJson[3],resolveJson[1],resolveJson[2],listAll,20)
+    #print(jsonStr)
+    with open(path,"w",encoding="utf-8") as file:
+        file.write(jsonStr) 
+#outputJson(resolveJson[0],resolveJson[3],resolveJson[1],resolveJson[2],listAll,20,outpt)
 
-
-
-
+def Interface_file():
+    global StatisticalPrefixx
+    global resolveJsonx
+    n = int(page3_selected[0])
+    StatisticalPrefixx = StatisticalPrefix(n)
+    resolveJsonx = resolveJson(core)
+    listAll = integration(StatisticalPrefixx, resolveJsonx)
+    outputJson(resolveJsonx[0], resolveJsonx[3], resolveJsonx[1], resolveJsonx[2], listAll, n, outpt)
+Interface_file()
+print ("prefix.py excution is completed!")
+print('-'*50)
 
 
