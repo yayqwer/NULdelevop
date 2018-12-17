@@ -16,9 +16,13 @@ def _into_config():
         result = fr.readlines()
         config['Page_Selected_Info'] = {
             'page1_selected': result[0].strip(),
+#            'page1_selected': result[0].split(':')[1].strip(),
             'page2_selected': result[1].strip(),
+ #           'page2_selected': result[1].split(':')[1].strip(),
             'page3_selected': result[2].strip(),
-            'generate_tc_file':result[3].strip()
+  #          'page3_selected': result[2].split(':')[1].strip(),
+            'generate_tc_file':result[3].strip(),
+   #         'generate_tc_file':result[3].split(':')[1].strip(),
         }
 
     with open(config_path_name, 'w', encoding='utf-8') as config_file:

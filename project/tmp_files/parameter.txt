@@ -1,4 +1,4 @@
 ['music']
-["playByLanguage","playByYears"]
-['10']
-True
+["playByYears","playByLanguage","playTopList","playBySinger","playByAlbum","playBySong","playBySchool","playByNoParameter"]
+['100']
+False

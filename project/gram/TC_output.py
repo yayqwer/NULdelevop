@@ -50,7 +50,9 @@ class TCOutputHandler:
                     return a.read()
             except FileNotFoundError:
                 pass
-        raise FileNotFoundError('File name incorrect, please check it. The param name is {name}.'.format(name=name))
+        # raise FileNotFoundError('File name incorrect, please check it. The param name is {name}.'.format(name=name))
+        print('Warning: File name incorrect, please check it. The param name is {name}.'.format(name=name))
+        return ''
 
     @staticmethod
     def handle_mapping(file_path):
@@ -111,31 +113,39 @@ class TCOutputHandler:
             for case in item['mainCase']:
                 example = case['name']
                 params = re.findall('\[(.*?)\]', example)
-                all_param_dict = {}
-                for param in params:
-                    param_name_user = self.mapping_dict['param'][param]["parameterId"]
-                    all_param_dict[param_name_user] = self.get_param_vocab(param_name_user)
-                # json第三层
-                for utt in case['variation']:
+                # 判断无参数情况
+                if len(params) == 0:
                     goal_intent = self.generate_goal(goal)
-                    value_intent = ''
-                    value_dict = {}
-                    param_pairs = re.findall('(\(.*?\])', utt)
+                    intent = 'intent{' + goal_intent + '}'
+                    for utt in case['variation']:
+                        utt_out = re.sub('(\[.*?\])', '', utt.replace('(', '').replace(')', ''))
+                        result.append(self.construct_item(utt_out, intent, goal))
+                else:
+                    all_param_dict = {}
+                    for param in params:
+                        param_name_user = self.mapping_dict['param'][param]["parameterId"]
+                        all_param_dict[param_name_user] = self.get_param_vocab(param_name_user)
+                    # json第三层
+                    for utt in case['variation']:
+                        goal_intent = self.generate_goal(goal)
+                        value_intent = ''
+                        value_dict = {}
+                        param_pairs = re.findall('(\(.*?\])', utt)
 
-                    for param_pair in param_pairs:
-                        param_name = re.search('\[(.*?)\]', param_pair).group(1)
-                        param_word = re.search('\((.*?)\)', param_pair).group(1)
-                        value_dict[param_name] = param_word
+                        for param_pair in param_pairs:
+                            param_name = re.search('\[(.*?)\]', param_pair).group(1)
+                            param_word = re.search('\((.*?)\)', param_pair).group(1)
+                            value_dict[param_name] = param_word
 
-                    for param_name, param_word in value_dict.items():
-                        param_name_user = self.mapping_dict['param'][param_name]["parameterId"]
-                        is_open = self.mapping_dict['param'][param_name]["parameter_isConvert"]
-                        param_vocab = all_param_dict.get(param_name_user)
-                        value_intent += self.generate_value(param_name_user, param_word, is_open, param_vocab)
+                        for param_name, param_word in value_dict.items():
+                            param_name_user = self.mapping_dict['param'][param_name]["parameterId"]
+                            is_open = self.mapping_dict['param'][param_name]["parameter_isConvert"]
+                            param_vocab = all_param_dict.get(param_name_user)
+                            value_intent += self.generate_value(param_name_user, param_word, is_open, param_vocab)
 
-                    intent = 'intent{' + goal_intent + value_intent + '}'
-                    utt_out = re.sub('(\[.*?\])', '', utt.replace('(', '').replace(')', ''))
-                    result.append(self.construct_item(utt_out, intent, goal))
+                        intent = 'intent{' + goal_intent + value_intent + '}'
+                        utt_out = re.sub('(\[.*?\])', '', utt.replace('(', '').replace(')', ''))
+                        result.append(self.construct_item(utt_out, intent, goal))
         print('TC_output.py excution is completed!\n--------------------------------------------------')
         return result
 

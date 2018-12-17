@@ -1,0 +1,87 @@
+[{
+		"capsule": "viv.motingMusic",
+		"goal": {
+			"playBySong": "PlayMusicForArtistAlbumAsParameter"
+		},
+		"param": {
+			"song": {
+				"parameterId": "SongName",
+				"parameter_isConvert": "false"
+			}
+		}
+	}, {
+		"capsule": "viv.motingMusic",
+		"goal": {
+			"playByLanguage": "PlayMusicOfCategoryFolder"
+		},
+		"param": {
+			"language": {
+				"parameterId": "Language",
+				"parameter_isConvert": "true"
+			}
+		}
+	}, {
+		"capsule": "viv.motingMusic",
+		"goal": {
+			"playBySinger": "PlayMusicForArtistAlbumAsParameter"
+		},
+		"param": {
+			"singer": {
+				"parameterId": "ArtistName",
+				"parameter_isConvert": "false"
+			}
+		}
+	}, {
+		"capsule": "viv.motingMusic",
+		"goal": {
+			"playByNoParameter": "PlayMusic"
+		},
+		"param": {}
+	}, {
+		"capsule": "viv.motingMusic",
+		"goal": {
+			"playByYears": "PlayMusicOfCategoryFolder"
+		},
+		"param": {
+			"year": {
+				"parameterId": "Years",
+				"parameter_isConvert": "true"
+			}
+		}
+	},{
+		"capsule":"viv.qingTingFM",
+		"playByAlbum":"DemandAlbumList",
+		"ChannelEnum":{
+			"parameterId":"ChannelEnum",
+			"parameter_isConvert":"false"
+		}
+	},{
+		"capsule":"viv.qingTingFM",
+		"playByBroadcast":"BroadcastTheList",
+		"RadioName":{
+			"parameterId":"RadioName",
+			"parameter_isConvert":"false"
+			},
+		"Type":{
+			"parameterId":"Type",
+			"parameter_isConvert":"true"
+		}
+	},{
+		"capsule":"viv.qingTingFM",
+		"playByRandom":"BroadcastRandom",
+		"Type":{
+			"parameterId":"Type",
+			"parameter_isConvert":"true"
+		}
+	},{
+		"capsule":"viv.qingTingFM",
+		"playByAccurateProgram":"AccurateProgram",
+		"Type":{
+			"parameterId":"Type",
+			"parameter_isConvert":"true"
+		},
+		"ChannelEnum":{
+			"parameterId":"ChannelEnum",
+			"parameter_isConvert":"false"
+		}
+]

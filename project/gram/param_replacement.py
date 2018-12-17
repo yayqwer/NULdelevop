@@ -71,17 +71,6 @@ class UtteranceHandler:
             return param_dict_new
         return param_dict_old
 
-    @staticmethod
-    def get_param_name(utt):
-        """
-        -工具方法-
-        接受句型，返回参数名
-        :param utt: 句型
-        :return: 参数名
-        """
-        param_list = re.findall('\[(.*?)\]', utt)
-        return param_list
-
     def get_param(self, param_dict, param_name):
         """
         -*-逻辑方法-*-
@@ -143,11 +132,21 @@ class UtteranceHandler:
                 utt_dict["name"] = utt_group["name"]
                 utt_dict["variation"] = []
                 # Json第三层
-                param_list = self.get_param_name(utt_dict["name"])
-                for param_name in param_list:
-                    param_dict = self.get_param_dict(param_name)
-                    for utt in utt_group["variation"]:
-                        utt_dict["variation"].append(self.replace_param(utt, param_name, param_dict, utterance_mode))
+                param_list = re.findall('\[(.*?)\]', utt_dict["name"])
+                used_params = []
+                # 判断是否是无参数句子
+                if len(param_list) == 0:
+                    utt_dict["variation"] = utt_group["variation"]
+                else:
+                    for param_name in param_list:
+                        if param_name in used_params:
+                            continue
+                        else:
+                            param_dict = self.get_param_dict(param_name)
+                            for utt in utt_group["variation"]:
+                                utt_dict["variation"].append(
+                                    self.replace_param(utt, param_name, param_dict, utterance_mode))
+                            used_params.append(param_name)
                 main_case.append(utt_dict)
                 goal_dict["mainCase"] = main_case
             result_json.append(goal_dict)
@@ -157,5 +156,5 @@ class UtteranceHandler:
 def utterance_output(type_name, json_path, utterance_mode=False):
     utterance_handler = UtteranceHandler(type_name, json_path)
     result = utterance_handler.generate_json(utterance_mode)
-    print("param_replacement.py excution is completed!\n--------------------------------------------------")
+    print("param_replacement.py execution is completed!\n--------------------------------------------------")
     return result
