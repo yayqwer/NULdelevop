@@ -1,0 +1,44 @@
+[
+    {
+        "id": "SearchBasketballMatch",
+        "word": "搜索篮球赛",
+        "mainCase": [
+			"[Time][Team]的比赛",
+			"[Team][Time]的比赛",
+            "搜索[Time][Team]的比赛",
+			"搜一下[Time][Team]的比赛",
+			"搜索[Team][Time]的比赛",
+			"搜一下[Team][Time]的比赛",
+			"查询[Time][Team]的比赛",
+			"查询[Team][Time]的比赛",
+			"看看[Time][Team]的比赛",
+			"看看[Team][Time]的比赛",
+			"查查[Time][Team]的比赛",
+			"查查[Team][Time]的比赛",
+			"查一下[Time][Team]的比赛",
+			"查一下[Team][Time]的比赛"
+			
+        ]
+    },
+    {
+        "id": "FuzzySearch",
+        "word": "模糊搜索",
+        "mainCase": [
+            "[Time]有[Team]的比赛吗",
+			"[Time]有的比赛吗",
+			"[Team]有的比赛吗",
+			"查询[Time]有[Team]的比赛吗",
+			"查询[Time]有的比赛吗",
+			"查询[Team]有的比赛吗",
+			"查查[Time]有[Team]的比赛吗",
+			"查查[Time]有的比赛吗",
+			"查查[Team]有的比赛吗",
+			"查一下[Time]有[Team]的比赛吗",
+			"查一下[Time]有的比赛吗",
+			"查一下[Team]有的比赛吗",
+			"看看[Time]有[Team]的比赛吗",
+			"看看[Time]有的比赛吗",
+			"看看[Team]有的比赛吗"
+        ]
+    }
+]

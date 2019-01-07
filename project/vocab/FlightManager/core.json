@@ -1,0 +1,29 @@
+[{
+	"id": "SearchFlightStatusByFlightNumber",
+	"word": "按航班号查询航班动态",
+	"mainCase": [
+	"航班[FlightNo][SearchFlight_Keyword]",
+	"[FlightNo]航班的[SearchFlight_Keyword]",
+	"查询航班[FlightNo]的[SearchFlight_Keyword]",
+	"查询[FlightNo]航班的[SearchFlight_Keyword]",
+	"查询航班[FlightNo][SearchFlight_Keyword]",
+	"查询[FlightNo]航班[SearchFlight_Keyword]",
+	"航班[FlightNo]的[SearchFlight_Keyword]",
+	"查一下航班[FlightNo]的[SearchFlight_Keyword]",
+	"查一下[FlightNo]航班的[SearchFlight_Keyword]",
+	"查一下航班[FlightNo][SearchFlight_Keyword]",
+	"查一下[FlightNo]航班[SearchFlight_Keyword]",
+	"查查航班[FlightNo]的[SearchFlight_Keyword]",
+	"查查[FlightNo]航班的[SearchFlight_Keyword]",
+	"查查航班[FlightNo][SearchFlight_Keyword]",
+	"查查[FlightNo]航班[SearchFlight_Keyword]",
+	"告诉我航班[FlightNo]的[SearchFlight_Keyword]",
+	"告诉我[FlightNo]航班的[SearchFlight_Keyword]",
+	"告诉我航班[FlightNo][SearchFlight_Keyword]",
+	"告诉我[FlightNo]航班[SearchFlight_Keyword]",
+	"看看航班[FlightNo]的[SearchFlight_Keyword]",
+	"看看[FlightNo]航班的[SearchFlight_Keyword]",
+	"看看航班[FlightNo][SearchFlight_Keyword]",
+	"看看[FlightNo]航班[SearchFlight_Keyword]"
+	]
+}]

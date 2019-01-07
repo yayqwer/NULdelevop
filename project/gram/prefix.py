@@ -4,7 +4,7 @@ import configparser
 
 
 config = configparser.ConfigParser()
-config.read('../config_test.ini')
+config.read('../config.ini')
 page1_selected = eval(config.get('Page_Selected_Info', 'page1_selected'))
 page3_selected = eval(config.get('Page_Selected_Info', 'page3_selected'))
 
@@ -166,7 +166,6 @@ def Interface_file():
     listAll = integration(StatisticalPrefixx, resolveJsonx)
     outputJson(resolveJsonx[0], resolveJsonx[3], resolveJsonx[1], resolveJsonx[2], listAll, n, outpt)
 Interface_file()
-print ("prefix.py excution is completed!")
-print('-'*50)
+
 
 

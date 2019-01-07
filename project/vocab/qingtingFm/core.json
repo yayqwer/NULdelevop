@@ -1,23 +1,32 @@
-[{
-	"id":"playByAlbum",
-	"word":"按专辑分类",
-	"mainCase":["播放[ChannelEnum]"]
-
-},{
-	"id":"playByBroadcast",
-	"word":"按广播分类",
-	"mainCase":['播放[RadioName][Type]']
-
-},{
-	"id":"playByRandom",
-	"word":"随机播放广播",
-	"mainCase":["播放[Type]"]
-
-},{
-	"id":"playByAccurateProgram",
-	"word":"按精确关键字分类",
-	"mainCase":[
-		'播放[Keyword]',
-		'播放[ChannelEnum][Type]']
-
-}]
+[
+  {
+    "id": "playByAlbum",
+    "word": "按专辑分类",
+    "mainCase": [
+      "播放[ChannelEnum]"
+    ]
+  },
+  {
+    "id": "playByBroadcast",
+    "word": "按广播分类",
+    "mainCase": [
+      "播放[RadioName][Type]",
+      "播放[RadioName]"
+    ]
+  },
+  {
+    "id": "playByRandom",
+    "word": "随机播放广播",
+    "mainCase": [
+      "播放[Type]"
+    ]
+  },
+  {
+    "id": "playByAccurateProgram",
+    "word": "按精确关键字分类",
+    "mainCase": [
+      "播放[Keyword]",
+      "播放[ChannelEnum][Keyword]"
+    ]
+  }
+]

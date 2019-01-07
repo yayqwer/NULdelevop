@@ -6,7 +6,7 @@ gram_path = root_path + '/gram'
 tmp_path = root_path + '/tmp_files'
 
 config = configparser.ConfigParser()
-config_path_name = root_path + '/config_test.ini'
+config_path_name = root_path + '/config.ini'
 config.read(config_path_name, encoding='utf8')
 
 
@@ -31,4 +31,4 @@ def _into_config():
 
 if __name__ == '__main__':
     _into_config()
-    print('jenkins_to_cofig.py excution is completed!')
+    

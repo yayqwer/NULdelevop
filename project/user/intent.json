@@ -1,87 +1,212 @@
 [{
-		"capsule": "viv.motingMusic",
+		"capsule": {
+			"music": "viv.motingMusic"
+		},
 		"goal": {
 			"playBySong": "PlayMusicForArtistAlbumAsParameter"
-		},
-		"param": {
-			"song": {
-				"parameterId": "SongName",
-				"parameter_isConvert": "false"
-			}
 		}
 	}, {
-		"capsule": "viv.motingMusic",
+		"capsule": {
+			"music": "viv.motingMusic"
+		},
 		"goal": {
 			"playByLanguage": "PlayMusicOfCategoryFolder"
-		},
-		"param": {
-			"language": {
-				"parameterId": "Language",
-				"parameter_isConvert": "true"
-			}
 		}
 	}, {
-		"capsule": "viv.motingMusic",
+		"capsule": {
+			"music": "viv.motingMusic"
+		},
 		"goal": {
 			"playBySinger": "PlayMusicForArtistAlbumAsParameter"
-		},
-		"param": {
-			"singer": {
-				"parameterId": "ArtistName",
-				"parameter_isConvert": "false"
-			}
 		}
 	}, {
-		"capsule": "viv.motingMusic",
+		"capsule": {
+			"music": "viv.motingMusic"
+		},
 		"goal": {
 			"playByNoParameter": "PlayMusic"
-		},
-		"param": {}
+		}
 	}, {
-		"capsule": "viv.motingMusic",
+		"capsule": {
+			"music": "viv.motingMusic"
+		},
 		"goal": {
 			"playByYears": "PlayMusicOfCategoryFolder"
+		}
+	}, {
+		"capsule": {
+			"news": "viv.tencentNews"
 		},
-		"param": {
-			"year": {
-				"parameterId": "Years",
-				"parameter_isConvert": "true"
-			}
+		"goal": {
+			"playByTopic": "PlayVoiceNews"
 		}
-	},{
-		"capsule":"viv.qingTingFM",
-		"playByAlbum":"DemandAlbumList",
-		"ChannelEnum":{
-			"parameterId":"ChannelEnum",
-			"parameter_isConvert":"false"
-		}
-	},{
-		"capsule":"viv.qingTingFM",
-		"playByBroadcast":"BroadcastTheList",
-		"RadioName":{
-			"parameterId":"RadioName",
-			"parameter_isConvert":"false"
-			},
-		"Type":{
-			"parameterId":"Type",
-			"parameter_isConvert":"true"
-		}
-	},{
-		"capsule":"viv.qingTingFM",
-		"playByRandom":"BroadcastRandom",
-		"Type":{
-			"parameterId":"Type",
-			"parameter_isConvert":"true"
-		}
-	},{
-		"capsule":"viv.qingTingFM",
-		"playByAccurateProgram":"AccurateProgram",
-		"Type":{
-			"parameterId":"Type",
-			"parameter_isConvert":"true"
+	}, {
+		"capsule": {
+			"news": "viv.tencentNews"
 		},
-		"ChannelEnum":{
-			"parameterId":"ChannelEnum",
-			"parameter_isConvert":"false"
+		"goal": {
+			"playByRegion": "PlayVoiceNews"
 		}
+	}, {
+		"capsule": {
+			"news": "viv.tencentNews"
+		},
+		"goal": {
+			"playByNoParameter": "PlayVoiceNews"
+		}
+	}, {
+		"capsule": {
+			"news": "viv.tencentNews"
+		},
+		"goal": {
+			"playByName": "PlayVoiceNews"
+		}
+	}, {
+		"capsule": {
+			"news": "viv.tencentNews"
+		},
+		"goal": {
+			"playByKeyword": "PlayVoiceNews"
+		}
+	}, {
+		"capsule": {
+			"qingtingFM": "viv.qingTingFM"
+		},
+		"goal": {
+			"playByAlbum": "DemandAlbumList"
+		}
+	}, {
+		"capsule": {
+			"qingtingFM": "viv.qingTingFM"
+		},
+		"goal": {
+			"playByBroadcast": "BroadcastTheList"
+		}
+	}, {
+		"capsule": {
+			"qingtingFM": "viv.qingTingFM"
+		},
+		"goal": {
+			"playByRandom": "BroadcastRandom"
+		}
+	}, {
+		"capsule": {
+			"qingtingFM": "viv.qingTingFM"
+		},
+		"goal": {
+			"playByAccurateProgram": "AccurateProgram"
+		}
+	}, {
+		"capsule": {
+			"meiTuan": "bixby.meiTuan"
+		},
+		"goal": {
+			"searchPoi": "serachNoDeal"
+		}
+	}, {
+		"capsule": {
+			"meiTuan": "bixby.meiTuan"
+		},
+		"goal": {
+			"searchDeal": "serachDeal"
+		}
+	}, {
+		"capsule": {
+			"xingzuowu": "bixby.xingzuowu"
+		},
+		"goal": {
+			"queryCA": "queryConstellationAttribute"
+		}
+	}, {
+		"capsule": {
+			"xingzuowu": "bixby.xingzuowu"
+		},
+		"goal": {
+			"queryMCA": "queryMyConstellationAttribute"
+		}
+	}, {
+		"capsule": {
+			"xingzuowu": "bixby.xingzuowu"
+		},
+		"goal": {
+			"queryCL": "queryConstellationLuck"
+		}
+	}, {
+		"capsule": {
+			"xingzuowu": "bixby.xingzuowu"
+		},
+		"goal": {
+			"queryMCL": "queryMyConstellationLuck"
+		}
+	}, {
+		"capsule": {
+			"xingzuowu": "bixby.xingzuowu"
+		},
+		"goal": {
+			"constellatM": "constellationMatch"
+		}
+	}, {
+		"capsule": {
+			"xingzuowu": "bixby.xingzuowu"
+		},
+		"goal": {
+			"shuxiangM": "shuxiangMatch"
+		}
+	}, {
+		"capsule": {
+			"FlightManager": "bixby.FlightManager"
+		},
+		"goal": {
+			"SearchFN": "SearchFlightStatusByFlightNumber"
+		}
+	}, {
+		"capsule": {
+			"eastMoney": "viv.eastMoney"
+		},
+		"goal": {
+			"CheckThePriceTrend": "CheckEastMoney"
+		}
+	}, {
+		"capsule": {
+			"soGou": "bixby.soGou"
+		},
+		"goal": {
+			"Sougou_1": "TrafficRestrictions"
+		}
+	},{
+		"capsule": {
+			"BaiduMap": "viv.baiduMap"
+		},
+		"goal": {
+			"TimeConsuming": "NavigateSpeaker"
+		}
+	},{
+		"capsule": {
+			"BaiduMap": "viv.baiduMap"
+		},
+		"goal": {
+			"PredictingTheFuture": "EstimatedTimeSpeaker"
+		}
+	},{
+		"capsule": {
+			"BaiduMap": "viv.baiduMap"
+		},
+		"goal": {
+			"ForecastCost": "NavigateSpeaker"
+		}
+	},{
+		"capsule": {
+			"sinasport": "bixby.speakerSinaSport"
+		},
+		"goal": {
+			"SearchBasketballMatch": "MatchDetail"
+		}
+	},{
+		"capsule": {
+			"sinasport": "bixby.speakerSinaSport"
+		},
+		"goal": {
+			"FuzzySearch": "MatchDetail"
+		}
+	}
 ]

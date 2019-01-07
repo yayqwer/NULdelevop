@@ -1,6 +1,0 @@
-vocab(Type){
-	"channel_live"{
-		"电台节目",
-		"广播电台"
-	}
-}

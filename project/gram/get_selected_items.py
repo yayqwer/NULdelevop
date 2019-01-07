@@ -1,46 +1,74 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Nov 29 16:32:32 2018
+#!user/bin/env python
+#encoding:utf8
+#!@tiem:2018/12/24 15:06
+#!@filename:get_selected_items_new.py
 
-@author: samsung
-"""
-
-#!/usr/bin/env python
-import os 
+import os
 import json
 import configparser
 
-# change current path 
-os.chdir(r'../')
-
-#get the selected info 
-#
-# page1_selected=['music']
-# page2_selected=["playBySinger","playBySong"]
-
-config = configparser.ConfigParser()
-config.read('config_test.ini')
-page1_selected = eval(config.get('Page_Selected_Info', 'page1_selected'))
-page2_selected = eval(config.get('Page_Selected_Info', 'page2_selected'))
-
-#creat read json function
+os.chdir('../')
 def readjson(path):
-    file = open(path, "r")
-    filejson = json.load(file)
-    file.close()
-    return (filejson)
+    fp=path
+    if os.path.exists(fp):
+        try:
+            with open(fp,'r',encoding='utf8') as f:
+                fj=json.load(f)
+        except Exception as e:
+            print(e)
+    else:
+        print('程序中断，%s 文件不存在，请重新检查' % fp)
+    return fj
 
-#get selected items from core.json
-selected_item = []
-for i in page1_selected:
-    path = "vocab/" + page1_selected[0] + "/" + "core.json"
-    core_json = readjson(path)
-    for j in page2_selected:
-        for m in core_json:    
-            if j ==m['id']:
-                selected_item.append(m)
+if os.path.exists('config.ini'):
+    try:
+        config = configparser.ConfigParser()
+        config.read('config.ini')
+        page1_selected = eval(config.get('Page_Selected_Info', 'page1_selected'))
+        page2_selected = eval(config.get('Page_Selected_Info', 'page2_selected'))
+    except Exception as e:
+        print(e)
+        print('程序中断，请检查config.ini文件')
+    else:
+        if len(page1_selected)!=0 and len(page2_selected)!=0:
+            selected_item = []
+            not_in_core=[]
+            for i in page1_selected:
+                if i in os.listdir("vocab/"):
+                    path = "vocab/" + page1_selected[0] + "/" + "core.json"
+                    try:
+                        core_json = readjson(path)
+                    except Exception as e:
+                        print(e)
+                        print("程序中断，%s 文件存在问题，请检查。"% path)
+                    else:
+                        for j in page2_selected:
+                            for m in core_json:
+                                if j == m['id']:
+                                    selected_item.append(m)
+                                else:
+                                    not_in_core.append(j)
+                        if len(selected_item)!= 0 :
+                            with open('tmp_files/selected_items.json', 'w', encoding='utf8') as fw:
+                                try:
+                                    json.dump(selected_item, fw, ensure_ascii=False)
+                                except Exception as e:
+                                    print(e)
+                                    print("程序中断，selected_items.json文件未完成写入,请检查。")
+                                else:
+                                    print("selected_items.json 文件写入完成。")
+                                    # if len(not_in_core) !=0:
+                                    #     print("%s 这些参数不在%s文件中，未写入。"%(set(not_in_core),path))
 
-#save selected_items as selected_items.json file
-with open('tmp_files/selected_items.json','w') as fw:
-   json.dump(selected_item,fw,ensure_ascii=False)
-   print('get_selected_items.py excution is completed!')
+                        else:
+                             print("程序中断，参数selected_items为空，未完成写入，请检查。")
+                else:
+                    print("在vocab文件夹中没有找到%s,请检查。"%i)
+        else:
+            print('%s or %s 中没有参数，请检查'%("page1_selected","page2_selected"))
+else:
+    print('config.ini 文件不存在！请仔细检查。')
+
+
+
+

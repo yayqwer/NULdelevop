@@ -1,6 +1,6 @@
 import prefix
-import param_replacement
-import TC_output
+import utterance_handler
+import tc_handler
 import configparser
 import json
 
@@ -13,14 +13,14 @@ class UttModel:
     @staticmethod
     def get_page1_param():
         config = configparser.ConfigParser()
-        config.read('../config_test.ini')
+        config.read('../config.ini')
         page1_selected = eval(config.get('Page_Selected_Info', 'page1_selected'))[0]
         return page1_selected
 
     @staticmethod
     def get_tc_param():
         config = configparser.ConfigParser()
-        config.read('../config_test.ini')
+        config.read('../config.ini')
         tc_param = eval(config.get('Page_Selected_Info', 'generate_tc_file'))
         return tc_param
 
@@ -29,24 +29,21 @@ class UttModel:
         prefix.Interface_file()
 
     def start_method_2(self):
-        json_data = param_replacement.utterance_output(self.page1_param, '../tmp_files/prefixOutput.json',
-                                                       utterance_mode=True)
-
+        json_data = utterance_handler.utterance_output(self.page1_param, '../tmp_files/prefixOutput.json',
+                                                       tc_mode=False)
         with open('../out/variation_{type_name}.json'.format(type_name=self.page1_param), 'w',
                   encoding='utf-8') as output:
             json.dump(json_data, output, ensure_ascii=False)
+        return json_data
 
-    def start_method_3(self):
-        json_data = param_replacement.utterance_output(self.page1_param, '../tmp_files/prefixOutput.json',
-                                                       utterance_mode=False)
-        tc = TC_output.TCOutputHandler(json_data)
-        result = tc.start_transfer()
+    def start_method_3(self, json_data):
+        result = tc_handler.tc_handler(json_data,self.page1_param)
         with open('../out/tc.json', 'w', encoding='utf-8') as output:
             json.dump(result, output, ensure_ascii=False)
 
 
 u = UttModel()
 u.start_method_1()
-u.start_method_2()
+jd = u.start_method_2()
 if u.tc_param:
-    u.start_method_3()
+    u.start_method_3(jd)

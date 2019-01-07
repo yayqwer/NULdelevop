@@ -1,0 +1,36 @@
+[
+  {
+    "id": "CheckThePriceTrend",
+    "word": "查看行情走势",
+    "mainCase": [
+      "[Product][Date]的[Indicator]",
+	  "[Date][Product]的[Indicator]",
+	  "查看[Date][Product]的[Indicator]",
+	  "查一查[Date][Product]的[Indicator]",
+	  "看一看[Date][Product]的[Indicator]",
+	  "搜索[Date][Product]的[Indicator]",
+	  "搜一搜[Date][Product]的[Indicator]",
+	  "查查[Date][Product]的[Indicator]",
+	  "查看[Product][Date]的[Indicator]",
+	  "查一查[Product][Date]的[Indicator]",
+	  "看一看[Product][Date]的[Indicator]",
+	  "搜索[Product][Date]的[Indicator]",
+	  "搜一搜[Product][Date]的[Indicator]",
+	  "查查[Product][Date]的[Indicator]",
+	  "[Date][Product][SpecifiedType]的[Indicator]",
+	  "[Product][SpecifiedType][Date]的[Indicator]",
+	  "查看[Product][SpecifiedType][Date]的[Indicator]",
+	  "查一查[Product][SpecifiedType][Date]的[Indicator]",
+	  "看一看[Product][SpecifiedType][Date]的[Indicator]",
+	  "搜索[Product][SpecifiedType][Date]的[Indicator]",
+	  "搜一搜[Product][SpecifiedType][Date]的[Indicator]",
+	  "查查[Product][SpecifiedType][Date]的[Indicator]",
+	  "查看[Date][Product][SpecifiedType]的[Indicator]",
+	  "查一查[Date][Product][SpecifiedType]的[Indicator]",
+	  "看一看[Date][Product][SpecifiedType]的[Indicator]",
+	  "搜索[Date][Product][SpecifiedType]的[Indicator]",
+	  "搜一搜[Date][Product][SpecifiedType]的[Indicator]",
+	  "查查[Date][Product][SpecifiedType]的[Indicator]"
+    ]
+  }
+]

@@ -1,8 +1,32 @@
 [{
 		"id": "music",
-		"word": "音乐",		
+		"word": "音乐"	
 	}, {
 		"id": "news",
-		"word": "新闻",
+		"word": "新闻"
+	}, {
+		"id": "BaiduMap",
+		"word": "地图导航"
+	}, {
+		"id": "qingtingFM",
+		"word": "蜻蜓FM"
+	}, {
+		"id": "meiTuan",
+		"word": "团购美食"
+	}, {
+		"id": "xingzuowu",
+		"word": "星座屋"
+	},{
+		"id":"eastMoney",
+		"word":"东方财富"
+	},{
+		"id":"sinasport",
+		"word":"体育赛事"
+	},{
+		"id":"soGou",
+		"word":"限行查询"
+	},{
+		"id":"FlightManager",
+		"word":"航班查询"
 	}
 ]

@@ -18,7 +18,7 @@ out_path = root_path + '/out'
 
 # parser config.ini
 config = configparser.ConfigParser()
-config_path_name = root_path + '/config_test.ini'
+config_path_name = root_path + '/config.ini'
 config.read(config_path_name, encoding='utf-8')
 
 # Number of single extended statements
